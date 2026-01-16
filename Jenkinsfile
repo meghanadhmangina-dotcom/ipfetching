@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git ''
+                git 'https://github.com/meghanadhmangina-dotcom/ipfetching.git'
             }
         }
         stage('Run Script') {
