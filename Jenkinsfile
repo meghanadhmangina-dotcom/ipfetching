@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Run Script') {
+        stage('Run Ip check') {
             steps {
-                sh 'chmod +x check_ip.sh'
-                sh './check_ip.sh'
+                bat 'check_ip.bat'
             }
         }
     }
