@@ -1,16 +1,15 @@
 pipeline {
     agent any
-
     stages {
-        stage('Fetch Local IP') {
+        stage('Checkout Code') {
             steps {
-                script {
-                    def localIP = sh(
-                        script: "hostname -I | awk '{print $1}'",
-                        returnStdout: true
-                    ).trim()
-                    echo "Local IP Address: ${localIP}"
-                }
+                git ''
+            }
+        }
+        stage('Run Script') {
+            steps {
+                sh 'chmod +x check_ip.sh'
+                sh './check_ip.sh'
             }
         }
     }
